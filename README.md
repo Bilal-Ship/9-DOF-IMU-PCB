@@ -20,25 +20,7 @@ Electrical schematic
 View the schematic PDF, or open the KiCad schematic source.
 Design verification evidence
 ![KiCad Design Rules Checker](Images/drc-results.png)
-Architecture
-```text
-             External 3.3 V supply + host controller
-                               |
-              5-pin interface J1: 3V3, GND,
-                        SDA, SCL, INT1
-                               |
-                +--------------+--------------+
-                |                             |
-          I²C SDA / SCL                Interrupt to host
-                |                             ^
-        +-------+---------+                   |
-        |                 |                   |
-  +-----v------+   +------v------+      from LSM6DSO32X
-  | LSM6DSO32X |   | MMC5983MA   |
-  | accel +    |   | magnetometer|
-  | gyro (6)   |   | (3)         |
-  +------------+   +-------------+
-```
+
 Both sensors are intended to share the I²C bus; the board contains pull-up resistors for the bus lines. The connector exposes the supply, ground, serial lines, and one inertial-sensor interrupt signal. The board does not contain an onboard microcontroller or firmware.
 External interface (J1)
 Pin	Label shown in the design	Function
